@@ -83,7 +83,88 @@ window.onload = function () {
   <li>Implement access control checks on every request, not just at login.</li>
   <li>Use <strong>indirect references</strong> or opaque tokens instead of raw IDs.</li>
   <li>Log and monitor unusual access patterns.</li>
-</ul>`
+</ul>`,
+        brokenauth: `
+        <h2>Broken Authentication</h2>
+<p>
+  Broken authentication occurs when application functions related to authentication and session management are improperly implemented, allowing attackers to compromise passwords, keys, or session tokens.
+</p>
+<p><strong>Example:</strong> Predictable or exposed session tokens allow account takeover.</p>
+<p><strong>How to Prevent:</strong> Use secure password storage, implement multi-factor authentication (MFA), and manage session tokens securely with expiration and regeneration.</p>
+`,
+        securitymisconfig: `
+        <h2>Security Misconfiguration</h2>
+<p>
+  This happens when security settings are poorly configured or left with default settings, exposing sensitive data or functionality.
+</p>
+<p><strong>Example:</strong> A production server running in debug mode exposing stack traces.</p>
+<p><strong>How to Prevent:</strong> Harden configurations, disable unused features, and regularly scan and patch the system.</p>
+`,
+        dataexposure: `
+        <h2>Sensitive Data Exposure</h2>
+<p>
+  Sensitive information (like passwords, credit card numbers, etc.) is exposed due to weak encryption, poor key management, or insecure storage.
+</p>
+<p><strong>Example:</strong> Transmitting data over HTTP instead of HTTPS.</p>
+<p><strong>How to Prevent:</strong> Use strong encryption (TLS/SSL), never store sensitive data unnecessarily, and follow best practices for key management.</p>
+`,
+        xxe: `
+        <h2>XML External Entities (XXE)</h2>
+<p>
+  An XXE vulnerability occurs when XML parsers process external entity references within XML input, which can be exploited to access internal files or systems.
+</p>
+<p><strong>Example:</strong> Sending a malicious XML payload to read sensitive files.</p>
+<p><strong>How to Prevent:</strong> Disable external entities and DTDs in XML parsers, and validate input.</p>
+`,
+        dirtraversal: `
+        <h2>Directory Traversal</h2>
+<p>
+  Directory Traversal allows attackers to access files and directories outside the web root folder by manipulating file paths in user input.
+</p>
+<p><strong>Example:</strong> Accessing <code>/etc/passwd</code> on a Linux server using <code>../../../../etc/passwd</code>.</p>
+<p><strong>How to Prevent:</strong> Sanitize and validate file paths, and restrict file access to specific directories only.</p>
+`,
+        cmdinjection: `
+        <h2>Command Injection</h2>
+<p>
+  Command injection occurs when an attacker can execute arbitrary system commands on a server through user-supplied input.
+</p>
+<p><strong>Example:</strong> Injecting <code>; rm -rf /</code> into a form field processed by the system shell.</p>
+<p><strong>How to Prevent:</strong> Avoid using shell commands with user input, use secure APIs, and validate all input.</p>
+`,
+        ssrf: `
+        <h2>Server-Side Request Forgery (SSRF)</h2>
+<p>
+  SSRF occurs when a web server is tricked into making a request to an unintended location, potentially accessing internal systems or metadata.
+</p>
+<p><strong>Example:</strong> Accessing internal cloud metadata endpoints like <code>http://169.254.169.254/</code>.</p>
+<p><strong>How to Prevent:</strong> Validate and restrict outbound requests, and use allow-lists for URLs.</p>
+`,
+        clickjacking: `
+        <h2>Clickjacking</h2>
+<p>
+  Clickjacking tricks users into clicking on something different than what they perceive by placing a transparent layer over legitimate buttons or links.
+</p>
+<p><strong>Example:</strong> A hidden iframe over a "Like" button tricking users to share malicious content.</p>
+<p><strong>How to Prevent:</strong> Use X-Frame-Options header or Content Security Policy (CSP) to prevent framing.</p>
+`,
+        fileupload: `
+        <h2>Unrestricted File Upload</h2>
+<p>
+  Allowing users to upload files without validation can lead to remote code execution, data leaks, or other attacks if malicious files are uploaded.
+</p>
+<p><strong>Example:</strong> Uploading a PHP shell disguised as an image file.</p>
+<p><strong>How to Prevent:</strong> Validate file types, restrict file extensions, store outside the web root, and scan files for malware.</p>
+`,
+        openredirect: `
+        <h2>Open Redirects</h2>
+<p>
+  An open redirect occurs when an application redirects users to a URL specified by user input, which can be exploited in phishing or social engineering attacks.
+</p>
+<p><strong>Example:</strong> <code>https://example.com/redirect?url=malicious.com</code></p>
+<p><strong>How to Prevent:</strong> Validate redirect URLs, avoid using user input for redirects, and use relative paths instead.</p>
+
+        `
     };
 
     document.querySelectorAll('.learn-more').forEach(btn => {
