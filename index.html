@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Vulnerabilities</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Segoe+UI:400,700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <h1 class="fade-in">Website Vulnerabilities</h1>
+        <p class="fade-in delay">Learn about common security flaws and how to protect your site.</p>
+    </header>
+
+    <section class="slider">
+        <div class="slides fade">
+            <img src="SQL-injection.png" alt="SQL Injection">
+            <div class="caption">SQL Injection: Manipulating database queries via user input.</div>
+        </div>
+        <div class="slides fade">
+            <img src="xss2.png" alt="Cross-Site Scripting">
+            <div class="caption">Cross-Site Scripting (XSS): Injecting malicious scripts into web pages.</div>
+        </div>
+        <div class="slides fade">
+            <img src="csrf2.png" alt="CSRF">
+            <div class="caption">CSRF: Exploiting authenticated users to perform unwanted actions.</div>
+        </div>
+    </section>
+
+    <section class="topics">
+        <div class="topic">
+            <h3>SQL Injection</h3>
+            <p>Attackers can manipulate SQL queries by injecting malicious input. <button class="learn-more"
+                    data-topic="sql">Learn More</button></p>
+        </div>
+        <div class="topic">
+            <h3>Cross-Site Scripting (XSS)</h3>
+            <p>Malicious scripts are injected into trusted websites. 
+            <button class="learn-more" data-topic="xss">Learn More</button></p>
+        </div>
+        <div class="topic">
+            <h3>Cross-Site Request Forgery (CSRF)</h3>
+            <p>Tricks users into submitting unwanted actions. 
+            <button class="learn-more" data-topic="csrf">Learn More</button></p>
+        </div>
+        <div class="topic">
+            <h3>Insecure Direct Object References</h3>
+            <p>Attackers access unauthorized data by manipulating references.            
+            <button class="learn-more" data-topic="idor">Learn More</button></p>
+        </div>
+    </section>
+
+    <!-- Modal for Learn More -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <footer>
+        &copy; 2025 SecureWeb Initiative | Stay Informed. Stay Secure.
+    </footer>
+</body>
+
+</html>
